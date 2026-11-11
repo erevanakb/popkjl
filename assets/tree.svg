@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420">
+<path d="M196 420 L204 420 L208 300 L230 260 L222 254 L204 288 L202 220 L214 190 L206 184 L198 214 L196 120Z" fill="#6b4226"/>
+<path d="M198 330 L160 300 L166 292 L198 318Z" fill="#6b4226"/>
+<path d="M204 300 L246 268 L252 276 L206 310Z" fill="#6b4226"/>
+<g id="foliage">
+<circle cx="140" cy="150" r="70" fill="#2f7d4f"/><circle cx="260" cy="150" r="70" fill="#2f7d4f"/>
+<circle cx="200" cy="100" r="80" fill="#3a9d63"/><circle cx="200" cy="160" r="75" fill="#35885a"/>
+</g>
+</svg>

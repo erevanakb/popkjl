@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نەورۆزی کوردستان | جەژنی بەهار</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-pattern" aria-hidden="true"></div>
+<div id="tulip-field" aria-hidden="true"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="#hero">
+      <img src="assets/logo.svg" alt="لۆگۆ">
+      <span>نەورۆزی کوردستان</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#hero">سەرەکی</a>
+      <a href="#games">یارییەکان</a>
+      <a href="#poetry">شیعر و پەند</a>
+      <a href="#cuisine">خواردن</a>
+      <a href="#attire">جلوبەرگ</a>
+      <a href="#wishtree">درەختی ئاوات</a>
+    </nav>
+    <button class="icon-btn" id="nav-admin-btn" title="پانێڵی بەڕێوەبردن">🔐</button>
+    <button class="icon-btn" id="nav-burger" title="لیستە">☰</button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="hero" class="hero">
+  <img class="hero-cypress cyp1" src="assets/cypress.svg" alt="">
+  <img class="hero-cypress cyp2" src="assets/cypress.svg" alt="">
+  <img class="hero-sun" src="assets/sun.svg" alt="خورشیدی نەورۆز">
+  <div class="hero-content">
+    <p class="hero-badge">✦ ٢١ی ئازار — سەرەتی ساڵی نوێ ✦</p>
+    <h1>نەورۆزت پیرۆز بێت</h1>
+    <p class="hero-sub">بەڕێوەبردنی جەژنی بەهاری کوردستان — کاتژمێری هاتنی ساڵی نوێ</p>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><span class="cd-num" id="cd-days">--</span><span class="cd-label">ڕۆژ</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">کاتژمێر</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">خولەک</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">چرکە</span></div>
+    </div>
+    <p class="cd-caption" id="cd-caption"></p>
+
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#games">یارییەکان بکە</a>
+      <a class="btn btn-ghost" href="#wishtree">ئاواتێک بنووسە</a>
+    </div>
+  </div>
+
+  <div class="audio-bar">
+    <button class="icon-btn big" id="audio-toggle" title="مۆسیقا">🎵</button>
+    <span id="audio-label">مۆسیقای نیشتمانی — ئەی ڕەقیب</span>
+    <input type="range" id="audio-volume" min="0" max="100" value="60" title="دەنگ">
+  </div>
+</section>
+
+<!-- ================= GAMES ================= -->
+<section id="games" class="section">
+  <h2 class="section-title">🎮 یارییە کوردییەکان</h2>
+  <p class="section-sub">چوار یاریی خۆش و ئینتراکتیڤ بۆ هەموو تەمەنەکان</p>
+
+  <div class="game-tabs">
+    <button class="game-tab active" data-game="quiz">❓ پرسیار و وەڵام</button>
+    <button class="game-tab" data-game="dress">👗 پۆشینی جلوبەرگ</button>
+    <button class="game-tab" data-game="memory">🃏 بیرگە</button>
+    <button class="game-tab" data-game="rhythm">🥁 ڕیتمی چۆپی</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="game-panel active" id="game-quiz">
+    <div class="quiz-box">
+      <div id="quiz-start">
+        <h3>تاقیکردنەوەی کەلتووری کورد</h3>
+        <p>١٠ پرسیار دەربارەی مێژوو، شوێنەوار و کەلتووری کورد. با ببینین چەند دەناسیت!</p>
+        <button class="btn btn-gold" id="quiz-begin">دەستپێکردن</button>
+      </div>
+      <div id="quiz-play" hidden>
+        <div class="quiz-meta"><span id="quiz-progress"></span><span id="quiz-score"></span></div>
+        <div class="quiz-bar"><div id="quiz-bar-fill"></div></div>
+        <h3 id="quiz-question"></h3>
+        <div class="quiz-options" id="quiz-options"></div>
+      </div>
+      <div id="quiz-end" hidden>
+        <h3 id="quiz-result-title"></h3>
+        <p id="quiz-result-text"></p>
+        <button class="btn btn-gold" id="quiz-restart">دووبارە یاری بکەرەوە</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRESS UP -->
+  <div class="game-panel" id="game-dress">
+    <div class="dress-wrap">
+      <div class="dress-stage">
+        <svg id="dress-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="246" rx="60" ry="10" fill="#000" opacity=".08"/>
+          <circle id="d-head" cx="100" cy="56" r="24" fill="#e8b48c"/>
+          <circle cx="92" cy="53" r="3" fill="#333"/><circle cx="108" cy="53" r="3" fill="#333"/>
+          <path d="M92 64 Q100 70 108 64" stroke="#a0663c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <g id="d-hat" visibility="visible">
+            <path id="d-hat-top" d="M74 34 Q100 8 126 34 L126 42 L74 42Z" fill="#2b2d42"/>
+            <rect id="d-hat-band" x="72" y="40" width="56" height="7" rx="3" fill="#ffd60a"/>
+          </g>
+          <path id="d-shirt" d="M78 84 Q100 72 122 84 L128 150 Q100 162 72 150Z" fill="#f1faee"/>
+          <path id="d-vest" d="M80 82 Q100 74 120 82 L124 112 Q100 102 76 112Z" fill="#1d3557"/>
+          <rect id="d-sash" x="76" y="120" width="48" height="12" fill="#e63946"/>
+          <path id="d-arm-l" d="M74 96 L52 130 L60 140 L80 112Z" fill="#f1faee"/>
+          <path id="d-arm-r" d="M126 96 L148 130 L140 140 L120 112Z" fill="#f1faee"/>
+          <circle cx="56" cy="140" r="7" fill="#e8b48c"/><circle cx="144" cy="140" r="7" fill="#e8b48c"/>
+          <path id="d-pants-l" d="M84 152 L80 240 L94 240 L98 154Z" fill="#343a40"/>
+          <path id="d-pants-r" d="M116 152 L120 240 L106 240 L102 154Z" fill="#343a40"/>
+          <g id="d-shoes">
+            <ellipse cx="85" cy="242" rx="13" ry="7" fill="#5c3a21"/>
+            <ellipse cx="115" cy="242" rx="13" ry="7" fill="#5c3a21"/>
+          </g>
+          <g id="d-klash" visibility="hidden">
+            <ellipse cx="85" cy="244" rx="15" ry="16" fill="#f5f3ee" stroke="#ccc"/>
+            <ellipse cx="115" cy="244" rx="15" ry="16" fill="#f5f3ee" stroke="#ccc"/>
+          </g>
+          <g id="d-baban" visibility="hidden">
+            <rect x="120" y="126" width="10" height="26" rx="4" fill="#6b4226"/>
+            <circle cx="125" cy="126" r="5" fill="#c0c0c0"/>
+          </g>
+        </svg>
+      </div>
+      <div class="dress-controls">
+        <div class="dress-row"><span>شێوەی جلوبەرگ:</span><button class="btn btn-small" id="dress-style">🔄 گۆڕین</button></div>
+        <div class="dress-row"><span>ڕەنگی جل:</span><div class="swatches" id="shirt-swatches"></div></div>
+        <div class="dress-row"><span>ڕەنگی بانەوە:</span><div class="swatches" id="vest-swatches"></div></div>
+        <div class="dress-row"><span>ڕەنگی قوربان:</span><div class="swatches" id="sash-swatches"></div></div>
+        <div class="dress-row"><span>کلاش:</span><button class="btn btn-small" id="dress-klash">پشتەوپێشکردن</button></div>
+        <div class="dress-row"><span>پشتێن:</span><button class="btn btn-small" id="dress-baban">پشتەوپێشکردن</button></div>
+        <div class="dress-row"><span>کڵاش/شاش:</span><button class="btn btn-small" id="dress-hat">گۆڕین</button></div>
+        <button class="btn btn-gold" id="dress-random">✨ شێوەیەکی هەڕەمەکی</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEMORY -->
+  <div class="game-panel" id="game-memory">
+    <div class="memory-wrap">
+      <div class="memory-meta">
+        <span>هاوشێوە: <b id="mem-matches">0</b>/8</span>
+        <span>هەوڵ: <b id="mem-moves">0</b></span>
+        <span>کات: <b id="mem-time">0</b> ث</span>
+        <button class="btn btn-small" id="mem-restart">🔁 دووبارە</button>
+      </div>
+      <div class="memory-grid" id="memory-grid"></div>
+      <div id="mem-win" class="mem-win" hidden><h3>🎉 پیرۆزە! دۆیتەوە</h3><p id="mem-win-text"></p></div>
+    </div>
+  </div>
+
+  <!-- RHYTHM -->
+  <div class="game-panel" id="game-rhythm">
+    <div class="rhythm-wrap">
+      <div class="rhythm-hud">
+        <span>خاڵ: <b id="rh-score">0</b></span>
+        <span>کۆمبو: <b id="rh-combo">0</b></span>
+        <button class="btn btn-gold" id="rh-start">▶ دەستپێکردن</button>
+      </div>
+      <div class="rhythm-lanes" id="rhythm-lanes">
+        <div class="rh-lane" data-lane="0"><span class="rh-key">د</span></div>
+        <div class="rh-lane" data-lane="1"><span class="rh-key">ف</span></div>
+        <div class="rh-lane" data-lane="2"><span class="rh-key">ج</span></div>
+        <div class="rh-lane" data-lane="3"><span class="rh-key">ک</span></div>
+        <div class="rh-hitline"></div>
+      </div>
+      <p class="rhythm-hint">کلیلەکانی «د ف ج ک» یان کلیک لەسەر هێڵەکان — لەسەر هێڵی زەرد دابگرە!</p>
+      <div class="rhythm-result" id="rh-result" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POETRY ================= -->
+<section id="poetry" class="section">
+  <h2 class="section-title">📜 شیعر و پەندی کوردی</h2>
+  <p class="section-sub">شاعیرە مەزنەکان و پەندە پڕ واتاکانی پێشینان</p>
+
+  <div class="poet-tabs" id="poet-tabs"></div>
+  <div class="poem-card" id="poem-card">
+    <div class="poem-head">
+      <h3 id="poem-title"></h3>
+      <button class="btn btn-small" id="poem-read">🔊 خوێندنەوە</button>
+    </div>
+    <div class="poem-text" id="poem-text"></div>
+    <p class="poem-note">کلیک لەسەر «🔊» بکە بۆ خوێندنەوەی دەنگی شیعرەکە (ئەگەر پشتگیری بکرێت لە وێبگەڕەکەتدا)</p>
+  </div>
+
+  <h3 class="sub-title">پەند و وتە نەسانەکان</h3>
+  <div class="proverbs-grid" id="proverbs-grid"></div>
+</section>
+
+<!-- ================= CUISINE ================= -->
+<section id="cuisine" class="section">
+  <h2 class="section-title">🍲 خواردنی ڕەسەنی کوردی</h2>
+  <p class="section-sub">بەناوبانگترین خواردنەکانی میزی کوردی لەگەڵ مێژووەکەیان</p>
+  <div class="cards-grid" id="cuisine-grid"></div>
+</section>
+
+<!-- ================= ATTIRE ================= -->
+<section id="attire" class="section">
+  <h2 class="section-title">🧵 جلوبەرگی کوردی</h2>
+  <p class="section-sub">فراوانی جلوبەرگی ڕەسەن لە ناوچە جیاوازەکانی کوردستان</p>
+  <div class="cards-grid" id="attire-grid"></div>
+</section>
+
+<!-- ================= WISH TREE ================= -->
+<section id="wishtree" class="section">
+  <h2 class="section-title">🌳 درەختی ئاوات</h2>
+  <p class="section-sub">پەیام و پیرۆزبایییەکەت بنووسە و وەک پەڕەیەکی ڕەنگاوڕەنگ لەسەر درەخت هەڵیبواسە</p>
+
+  <div class="wish-wrap">
+    <div class="wish-tree-box">
+      <svg id="wish-tree-svg" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg">
+        <g id="wish-foliage">
+          <circle cx="140" cy="150" r="70" fill="#2f7d4f"/><circle cx="260" cy="150" r="70" fill="#2f7d4f"/>
+          <circle cx="200" cy="100" r="80" fill="#3a9d63"/><circle cx="200" cy="160" r="75" fill="#35885a"/>
+        </g>
+        <path d="M196 420 L204 420 L208 300 L230 260 L222 254 L204 288 L202 220 L214 190 L206 184 L198 214 L196 120Z" fill="#6b4226"/>
+        <g id="wish-leaves"></g>
+      </svg>
+    </div>
+    <form class="wish-form" id="wish-form">
+      <h3>ئاواتێکی نوێ</h3>
+      <input type="text" id="wish-name" maxlength="30" placeholder="ناوت (ئارەزوومەندانە)" >
+      <textarea id="wish-msg" maxlength="140" placeholder="پیرۆزبایی، بیرەوەری یان پەیامەکەت لێرە بنووسە..." required></textarea>
+      <span>ڕەنگی پەڕە:</span>
+      <div class="swatches" id="wish-colors"></div>
+      <button class="btn btn-gold" type="submit">🍃 لەسەر درەخت دابنێ</button>
+      <p class="wish-count" id="wish-count"></p>
+    </form>
+  </div>
+  <div class="wish-list" id="wish-list"></div>
+</section>
+
+<footer class="footer">
+  <img src="assets/logo.svg" alt="">
+  <p>نەورۆزی کوردستان © ٢٠٢٦ — ساڵی نوێت پیرۆز بێت 🌷</p>
+</footer>
+
+<!-- ================= ADMIN MODAL ================= -->
+<div class="modal-overlay" id="admin-modal" hidden>
+  <div class="modal admin-modal">
+    <button class="modal-close" id="admin-close">✕</button>
+    <div id="admin-login">
+      <h3>🔐 پانێڵی بەڕێوەبردن</h3>
+      <p>تکایە وشەی نهێنی بنووسە بۆ دەستپێگەیشتن</p>
+      <input type="password" id="admin-pass" placeholder="وشەی نهێنی">
+      <button class="btn btn-gold" id="admin-login-btn">چوونەژوورەوە</button>
+      <p class="admin-hint">وشەی نهێنی بنەڕەتی: <code>1234</code> — تکایە بیگۆڕە دوای یەکەم چوونەژوورەوە (ڕێنووسی README ببینە)</p>
+      <p class="admin-error" id="admin-error" hidden>❌ وشەی نهێنی هەڵەیە!</p>
+    </div>
+    <div id="admin-panel" hidden>
+      <h3>⚙️ بەڕێوەبردنی ناوەڕۆک</h3>
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-atab="poems">شیعر</button>
+        <button class="admin-tab" data-atab="proverbs">پەند</button>
+        <button class="admin-tab" data-atab="cuisine">خواردن</button>
+        <button class="admin-tab" data-atab="attire">جلوبەرگ</button>
+        <button class="admin-tab" data-atab="quiz">پرسیارەکان</button>
+        <button class="admin-tab" data-atab="wishes">ئاواتەکان</button>
+        <button class="admin-tab" data-atab="settings">ڕێکخستن</button>
+      </div>
+      <div class="admin-body" id="admin-body"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="js/main.js"></script>
+<script src="js/games.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
